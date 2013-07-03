@@ -1,6 +1,6 @@
 /*
 
-tumbleon-utils.h
+TumbleOnUtils header file
 
 A collection of objective-c IOS utilities written by the development team 
 behind TumbleOn.

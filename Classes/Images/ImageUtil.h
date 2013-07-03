@@ -6,6 +6,8 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+//TODO: collapse this into a UIIMage+TO
+
 #import <Foundation/Foundation.h>
 
 @interface ImageUtil : NSObject

@@ -110,7 +110,7 @@
 		96CDF4161783E446003AA83F /* SimpleImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SimpleImagePicker.m; path = ../Images/SimpleImagePicker.m; sourceTree = "<group>"; };
 		96CDF41C1783E446003AA83F /* SimpleMailer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleMailer.h; sourceTree = "<group>"; };
 		96CDF41D1783E446003AA83F /* SimpleMailer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleMailer.m; sourceTree = "<group>"; };
-		96CDF41E1783E446003AA83F /* TumbleOn-Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TumbleOn-Utils.h"; sourceTree = "<group>"; };
+		96CDF41E1783E446003AA83F /* TumbleOnUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumbleOnUtils.h; sourceTree = "<group>"; };
 		96CDF4201783E446003AA83F /* FrameUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameUtils.h; sourceTree = "<group>"; };
 		96CDF4211783E446003AA83F /* FrameUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameUtils.m; sourceTree = "<group>"; };
 		96CDF4221783E446003AA83F /* TableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewHelper.h; sourceTree = "<group>"; };
@@ -269,7 +269,7 @@
 				96CDF3E21783E446003AA83F /* Data Structures */,
 				96CDF40B1783E446003AA83F /* Encoding */,
 				96CDF4171783E446003AA83F /* Networking */,
-				96CDF41E1783E446003AA83F /* TumbleOn-Utils.h */,
+				96CDF41E1783E446003AA83F /* TumbleOnUtils.h */,
 				96CDF41F1783E446003AA83F /* UIKit Utils */,
 				96CDF44C1783E446003AA83F /* Widgets */,
 			);
