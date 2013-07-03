@@ -96,10 +96,6 @@
 #define BarButtonFlexibleSpace [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]
 #define BarButtonFixedSpace [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]
 
-
-@interface UIViewController (TO)
-@end
-
 #define screenHeight [[UIScreen mainScreen] bounds].size.height
 #define screenIs4Inch (screenHeight == 568)
 #define screenIs3dot5Inch (screenHeight == 480)

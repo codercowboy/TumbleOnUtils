@@ -48,7 +48,7 @@
  */
 
 #import "UIKit+TO.h"
-#import "UIView+FrameUtils.h"
+#import "UIView+TOFrameUtils.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation UIAlertView (TO)
@@ -190,7 +190,7 @@
 
 
 + (UIView *) fullScreenShadowBackground {
-    UIView * grayBackground = [[UIView alloc] initWithFrame:[FrameUtils frameIpadLandscape]];
+    UIView * grayBackground = [[UIView alloc] initWithFrame:[TOFrameUtils frameIpadLandscape]];
     grayBackground.backgroundColor = [UIColor blackColor];
     grayBackground.alpha = 0.5f;
     grayBackground.opaque = NO;
