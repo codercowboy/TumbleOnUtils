@@ -182,9 +182,6 @@
 		96CDF36E1783DBD0003AA83F = {
 			isa = PBXGroup;
 			children = (
-				96CDF4AD1783F25A003AA83F /* MobileCoreServices.framework */,
-				96CDF4A91783F21F003AA83F /* MessageUI.framework */,
-				96CDF4AA1783F220003AA83F /* QuartzCore.framework */,
 				96CDF3801783DBD0003AA83F /* TumbleOnUtils */,
 				96CDF3A71783DBD0003AA83F /* TumbleOnUtilsTests */,
 				96CDF3B81783DC9C003AA83F /* Etc */,
@@ -204,10 +201,13 @@
 		96CDF3791783DBD0003AA83F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96CDF37A1783DBD0003AA83F /* UIKit.framework */,
-				96CDF37C1783DBD0003AA83F /* Foundation.framework */,
 				96CDF37E1783DBD0003AA83F /* CoreGraphics.framework */,
+				96CDF37C1783DBD0003AA83F /* Foundation.framework */,
+				96CDF4A91783F21F003AA83F /* MessageUI.framework */,
+				96CDF4AD1783F25A003AA83F /* MobileCoreServices.framework */,
+				96CDF4AA1783F220003AA83F /* QuartzCore.framework */,
 				96CDF3A11783DBD0003AA83F /* SenTestingKit.framework */,
+				96CDF37A1783DBD0003AA83F /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
