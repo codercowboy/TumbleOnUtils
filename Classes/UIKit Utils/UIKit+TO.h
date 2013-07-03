@@ -78,7 +78,6 @@
 + (int) getTouchTapCount:(UIEvent *) event;
 + (BOOL) isSingleTap:(UIEvent *) event;
 + (BOOL) isDoubleTap:(UIEvent *) event;
-
 @end
 
 @interface UIButton (TO)
@@ -86,7 +85,6 @@
 @end
 
 #define UIBUTTON(title,sel,parent2,frame2) [UIButton buttonWithTitle:title tapSelector:sel parent:parent2 frame:frame2]
-
 
 @interface UIBarButtonItem (TO)
 @property (weak,nonatomic) UIColor * titleColor;

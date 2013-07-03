@@ -55,18 +55,22 @@
 
 - (id) initWithColCount:(int)colCount rowCount:(int)rowCount;
 - (void) setObject:(NSObject *)object  col:(int)col row:(int)row;
-- (NSObject *) objectAtCol:(int)col row:(int)row;
-- (void) removeObjectAtCol:(int)col row:(int)row;
-- (void) clear;
-- (BOOL) isEmptyAtCol:(int)col row:(int)row;
+
 - (NSArray*) allItems;
-- (BOOL) isColumnEmpty:(int)col;
-- (BOOL) isRowEmpty:(int)row;
-- (int) findNexNonEmptyCol:(int)startCol;
-- (int) findNexNonEmptyRow:(int)startRow;
+- (NSObject *) objectAtCol:(int)col row:(int)row;
 - (NSArray*) objectsAtCol:(int)col;
 - (NSArray*) objectsAtRow:(int)row;
 - (NSObject *) randomObject;
+
+- (void) clear;
+- (BOOL) isEmptyAtCol:(int)col row:(int)row;
+- (BOOL) isColumnEmpty:(int)col;
+- (BOOL) isRowEmpty:(int)row;
+
+- (void) removeObjectAtCol:(int)col row:(int)row;
+
+- (int) findNexNonEmptyCol:(int)startCol;
+- (int) findNexNonEmptyRow:(int)startRow;
 
 - (NSObject*) getNeighborLeftAtCol:(int)col row:(int)row;
 - (NSObject*) getNeighborRightAtCol:(int)col row:(int)row;

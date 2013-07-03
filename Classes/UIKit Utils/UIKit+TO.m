@@ -78,24 +78,6 @@
 
 @end
 
-@implementation UIViewController (TO)
-
-- (void)fixForNon4Inch {
-    if ([[UIScreen mainScreen] bounds].size.height == 480) {
-//        UIView * oldView = self.view;
-//        self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 480, 320)];
-//        [self.view addSubview:oldView];
-//        [oldView frameMoveToX:-44];
-//        oldView.backgroundColor = [UIColor redColor];
-//        self.view.backgroundColor = [UIColor blueColor];
-        for (UIView * v in [self.view subviews]) {
-            [v frameMoveByXDelta:-44];
-        }
-    }
-}
-
-@end
-
 @implementation UIView (TO)
 
 - (void) removeAllSubviews {
@@ -104,8 +86,7 @@
     }
 }
 
--(void)animateBounceTo:(CGPoint)to delay:(NSTimeInterval)delay
-{
+-(void)animateBounceTo:(CGPoint)to delay:(NSTimeInterval)delay {
     CGPoint firstStop = CGPointMake(to.x-(self.frame.origin.x-to.x)*.1, to.y-(self.frame.origin.y-to.y)*.1);
     
     [UIView animateWithDuration:.3 delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^(void){
@@ -116,8 +97,7 @@
         }];
     }];
 }
--(void)animateBounceTo:(CGPoint)to
-{
+-(void)animateBounceTo:(CGPoint)to {
     [self animateBounceTo:to delay:0];
 }
 

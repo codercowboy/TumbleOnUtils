@@ -67,9 +67,7 @@
     if (w > h) {
         multiplier = maxSize.width / w;
     }
-    h = h * multiplier;
-    w = w * multiplier;
     
-    return CGSizeMake(w, h);
+    return CGSizeMake(w * multiplier, h * multiplier);
 }
 @end

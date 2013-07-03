@@ -55,129 +55,103 @@
 
 @implementation UIView (TOFrameUtils)
 
-- (void) frameResizeToSize:(CGSize)size
-{
+- (void) frameResizeToSize:(CGSize)size {
     self.frame = [TOFrameUtils frame:self.frame resizeToSize:size];
 }
 
-- (void) frameResizeToWidth:(CGFloat)width height:(CGFloat)height
-{
+- (void) frameResizeToWidth:(CGFloat)width height:(CGFloat)height {
     self.frame = [TOFrameUtils frame:self.frame resizeToWidth:width height:height];
 }
 
-- (void) frameResizeToWidth:(CGFloat)width
-{
+- (void) frameResizeToWidth:(CGFloat)width {
     self.frame = [TOFrameUtils frame:self.frame resizeToWidth:width];
 }
 
-- (void) frameResizeToHeight:(CGFloat)height
-{
+- (void) frameResizeToHeight:(CGFloat)height {
     self.frame = [TOFrameUtils frame:self.frame resizeToHeight:height];
 }
 
-- (void) frameResizeByDelta:(CGSize)delta
-{
+- (void) frameResizeByDelta:(CGSize)delta {
     self.frame = [TOFrameUtils frame:self.frame resizeByDelta:delta];
 }
 
-- (void) frameResizeByWidthDelta:(CGFloat)widthDelta heightDelta:(CGFloat)heightDelta
-{
+- (void) frameResizeByWidthDelta:(CGFloat)widthDelta heightDelta:(CGFloat)heightDelta {
     self.frame = [TOFrameUtils frame:self.frame resizeByWidthDelta:widthDelta heightDelta:heightDelta];
 }
 
-- (void) frameResizeByWidthDelta:(CGFloat)widthDelta
-{
+- (void) frameResizeByWidthDelta:(CGFloat)widthDelta {
     self.frame = [TOFrameUtils frame:self.frame resizeByWidthDelta:widthDelta];
 }
 
-- (void) frameResizeByHeightDelta:(CGFloat)heightDelta
-{
+- (void) frameResizeByHeightDelta:(CGFloat)heightDelta {
     self.frame = [TOFrameUtils frame:self.frame resizeByHeightDelta:heightDelta];
 }
 
-- (void) frameMoveToPosition:(CGPoint)position
-{
+- (void) frameMoveToPosition:(CGPoint)position {
     self.frame = [TOFrameUtils frame:self.frame moveToPosition:position];
 }
 
-- (void) frameMoveToX:(CGFloat)x y:(CGFloat)y
-{
+- (void) frameMoveToX:(CGFloat)x y:(CGFloat)y {
     self.frame = [TOFrameUtils frame:self.frame moveToX:x y:y];
 }
 
-- (void) frameMoveToX:(CGFloat)x
-{
+- (void) frameMoveToX:(CGFloat)x {
     self.frame = [TOFrameUtils frame:self.frame moveToX:x];
 }
-- (void) frameMoveToY:(CGFloat)y
-{
+- (void) frameMoveToY:(CGFloat)y {
     self.frame = [TOFrameUtils frame:self.frame moveToY:y];
 }
 
-- (void) frameMoveByDelta:(CGPoint)delta
-{
+- (void) frameMoveByDelta:(CGPoint)delta {
     self.frame = [TOFrameUtils frame:self.frame moveByDelta:delta];
 }
 
-- (void) frameMoveByXDelta:(CGFloat)xDelta yDelta:(CGFloat)yDelta
-{
+- (void) frameMoveByXDelta:(CGFloat)xDelta yDelta:(CGFloat)yDelta {
     self.frame = [TOFrameUtils frame:self.frame moveByXDelta:xDelta yDelta:yDelta];
 }
 
-- (void) frameMoveByXDelta:(CGFloat)xDelta
-{
+- (void) frameMoveByXDelta:(CGFloat)xDelta {
     self.frame = [TOFrameUtils frame:self.frame moveByXDelta:xDelta];
 }
 
-- (void) frameMoveByYDelta:(CGFloat)yDelta
-{
+- (void) frameMoveByYDelta:(CGFloat)yDelta {
     self.frame = [TOFrameUtils frame:self.frame moveByYDelta:yDelta];
 }
 
-- (void) frameCenterInFrame:(CGRect)frame
-{
+- (void) frameCenterInFrame:(CGRect)frame {
     self.frame = [TOFrameUtils frame:self.frame centerInFrame:frame];
 }
 
-- (void) frameCenterHorizontallyInFrame:(CGRect)frame
-{
+- (void) frameCenterHorizontallyInFrame:(CGRect)frame {
     self.frame = [TOFrameUtils frame:self.frame centerHorizontallyInFrame:frame];
 }
 
-- (void) frameCenterVerticallyInFrame:(CGRect)frame
-{
+- (void) frameCenterVerticallyInFrame:(CGRect)frame {
     self.frame = [TOFrameUtils frame:self.frame centerVerticallyInFrame:frame];
 }
 
-- (void) frameCenterInParent
-{
+- (void) frameCenterInParent {
     [self frameCenterInFrame:self.superview.frame];
 }
 
-- (void) frameCenterHorizontallyInParent
-{
+- (void) frameCenterHorizontallyInParent {
     [self frameCenterHorizontallyInFrame:self.superview.frame];
 }
 
-- (void) frameCenterVerticallyInParent
-{
+- (void) frameCenterVerticallyInParent {
     [self frameCenterVerticallyInFrame:self.superview.frame];
 }
 
-- (void) frameFix
-{
+- (void) frameFix {
     self.frame = [TOFrameUtils fixFrame:self.frame];
 }
 
-- (void) framePrintWithLabel:(NSString *)label
-{
+- (void) framePrintWithLabel:(NSString *)label {
     [TOFrameUtils printFrame:self.frame label:label];
 }
 
-- (void) framePrint
-{
+- (void) framePrint {
     [TOFrameUtils printFrame:self.frame];  
 }
-
 
 @end

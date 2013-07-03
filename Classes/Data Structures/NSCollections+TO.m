@@ -96,10 +96,7 @@
 @implementation NSDictionary (CC)
 - (NSObject*) keyForObject:(id)object {
     NSArray * keys = [self allKeysForObject:object];
-    if (keys == nil) {
-        return nil;
-    }
-    return [keys objectAtIndex:0];
+    return (keys == nil) ? nil : [keys objectAtIndex:0];
 }
 @end
 

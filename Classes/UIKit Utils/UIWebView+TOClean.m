@@ -69,8 +69,7 @@
  */
 
 
-- (void) cleanForDealloc
-{
+- (void) cleanForDealloc {
     /*
      
      There are several theories and rumors about UIWebView memory leaks, and how

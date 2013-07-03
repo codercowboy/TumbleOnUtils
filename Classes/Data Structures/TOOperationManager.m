@@ -204,8 +204,7 @@
             NSOperation *opParams=nil;
             @synchronized (self.operationList) {
                 int index = [self.operationList count] - 1;
-                if(index<0)
-                {
+                if(index < 0) {
                     self.runningThreads--;
                     return;
                 }
