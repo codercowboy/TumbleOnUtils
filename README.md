@@ -6,7 +6,7 @@ A collection of objective-c IOS utilities written by the development team behind
 * Authors: 
     * Jason Baker ([jason@onejasonforsale.com](mailto:jason@onejasonforsale.com)) 
     * Adam Zacharski ([zacharski@gmail.com](mailto:zacharski@gmail.com))
-* On bitbucket: [https://github.com/codercowboy/TumbleOnUtils](https://github.com/codercowboy/TumbleOnUtils)
+* On github: [https://github.com/codercowboy/TumbleOnUtils](https://github.com/codercowboy/TumbleOnUtils)
 * More info: [http://www.tumbleonapp.com/code](http://www.tumbleonapp.com)
 
 Basic Instructions

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "96CDF3761783DBD0003AA83F"
-               BuildableName = "TumbleOnUtils.app"
-               BlueprintName = "TumbleOnUtils"
+               BuildableName = "TumbleOnUtilsDemo.app"
+               BlueprintName = "TumbleOnUtilsDemo"
                ReferencedContainer = "container:TumbleOnUtils.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96CDF3761783DBD0003AA83F"
-            BuildableName = "TumbleOnUtils.app"
-            BlueprintName = "TumbleOnUtils"
+            BuildableName = "TumbleOnUtilsDemo.app"
+            BlueprintName = "TumbleOnUtilsDemo"
             ReferencedContainer = "container:TumbleOnUtils.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96CDF3761783DBD0003AA83F"
-            BuildableName = "TumbleOnUtils.app"
-            BlueprintName = "TumbleOnUtils"
+            BuildableName = "TumbleOnUtilsDemo.app"
+            BlueprintName = "TumbleOnUtilsDemo"
             ReferencedContainer = "container:TumbleOnUtils.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "96CDF3761783DBD0003AA83F"
-            BuildableName = "TumbleOnUtils.app"
-            BlueprintName = "TumbleOnUtils"
+            BuildableName = "TumbleOnUtilsDemo.app"
+            BlueprintName = "TumbleOnUtilsDemo"
             ReferencedContainer = "container:TumbleOnUtils.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
