@@ -47,14 +47,14 @@
  
  */
 
-#import "TOGridArray.h"
+#import "TOGrid.h"
 #import "Foundation+TONilSafe.h"
 
-@interface TOGridArray ()
+@interface TOGrid ()
 @property TONSMutableDictionaryNilSafe * grid;
 @end
 
-@implementation TOGridArray
+@implementation TOGrid
 - (id) initWithColCount:(int)colCount rowCount:(int)rowCount {
     self = [super init];
     if (self) {

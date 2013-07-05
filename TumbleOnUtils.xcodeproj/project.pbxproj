@@ -27,7 +27,7 @@
 		96CDF4AE1783F25A003AA83F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CDF4AD1783F25A003AA83F /* MobileCoreServices.framework */; };
 		96CDF4F01783FD2C003AA83F /* Foundation+TONilSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF4B21783FD2C003AA83F /* Foundation+TONilSafe.m */; };
 		96CDF4F11783FD2C003AA83F /* Foundation+TO.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF4B41783FD2C003AA83F /* Foundation+TO.m */; };
-		96CDF4F21783FD2C003AA83F /* TOGridArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF4B61783FD2C003AA83F /* TOGridArray.m */; };
+		96CDF4F21783FD2C003AA83F /* TOGrid.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF4B61783FD2C003AA83F /* TOGrid.m */; };
 		96CDF4F31783FD2C003AA83F /* TOLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF4B81783FD2C003AA83F /* TOLinkedList.m */; };
 		96CDF4F41783FD2C003AA83F /* NSCollections+TO.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF4BA1783FD2C003AA83F /* NSCollections+TO.m */; };
 		96CDF4F51783FD2C003AA83F /* TOOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF4BC1783FD2C003AA83F /* TOOperationManager.m */; };
@@ -96,8 +96,8 @@
 		96CDF4B21783FD2C003AA83F /* Foundation+TONilSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+TONilSafe.m"; sourceTree = "<group>"; };
 		96CDF4B31783FD2C003AA83F /* Foundation+TO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Foundation+TO.h"; sourceTree = "<group>"; };
 		96CDF4B41783FD2C003AA83F /* Foundation+TO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+TO.m"; sourceTree = "<group>"; };
-		96CDF4B51783FD2C003AA83F /* TOGridArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOGridArray.h; sourceTree = "<group>"; };
-		96CDF4B61783FD2C003AA83F /* TOGridArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOGridArray.m; sourceTree = "<group>"; };
+		96CDF4B51783FD2C003AA83F /* TOGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOGrid.h; sourceTree = "<group>"; };
+		96CDF4B61783FD2C003AA83F /* TOGrid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOGrid.m; sourceTree = "<group>"; };
 		96CDF4B71783FD2C003AA83F /* TOLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOLinkedList.h; sourceTree = "<group>"; };
 		96CDF4B81783FD2C003AA83F /* TOLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOLinkedList.m; sourceTree = "<group>"; };
 		96CDF4B91783FD2C003AA83F /* NSCollections+TO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCollections+TO.h"; sourceTree = "<group>"; };
@@ -279,8 +279,8 @@
 				96CDF4B21783FD2C003AA83F /* Foundation+TONilSafe.m */,
 				96CDF4B31783FD2C003AA83F /* Foundation+TO.h */,
 				96CDF4B41783FD2C003AA83F /* Foundation+TO.m */,
-				96CDF4B51783FD2C003AA83F /* TOGridArray.h */,
-				96CDF4B61783FD2C003AA83F /* TOGridArray.m */,
+				96CDF4B51783FD2C003AA83F /* TOGrid.h */,
+				96CDF4B61783FD2C003AA83F /* TOGrid.m */,
 				96CDF4B71783FD2C003AA83F /* TOLinkedList.h */,
 				96CDF4B81783FD2C003AA83F /* TOLinkedList.m */,
 				96CDF4B91783FD2C003AA83F /* NSCollections+TO.h */,
@@ -474,7 +474,7 @@
 				96CDF3941783DBD0003AA83F /* TOSampleViewController.m in Sources */,
 				96CDF4F01783FD2C003AA83F /* Foundation+TONilSafe.m in Sources */,
 				96CDF4F11783FD2C003AA83F /* Foundation+TO.m in Sources */,
-				96CDF4F21783FD2C003AA83F /* TOGridArray.m in Sources */,
+				96CDF4F21783FD2C003AA83F /* TOGrid.m in Sources */,
 				96CDF4F31783FD2C003AA83F /* TOLinkedList.m in Sources */,
 				96CDF4F41783FD2C003AA83F /* NSCollections+TO.m in Sources */,
 				96CDF4F51783FD2C003AA83F /* TOOperationManager.m in Sources */,

@@ -1,6 +1,6 @@
 /*
  
- TOGridArray
+ TOGrid
  
  ---
  
@@ -49,7 +49,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TOGridArray : NSObject
+@interface TOGrid : NSObject
 @property int rowCount;
 @property int colCount;
 

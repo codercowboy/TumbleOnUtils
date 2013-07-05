@@ -54,7 +54,7 @@ expressed or implied.
 
 #import "Foundation+TONilSafe.h" //arrays, dictionaries, and strings with nil-safe add operations
 #import "Foundation+TO.h" //various utilities for Foundation classes
-#import "TOGridArray.h" //2D grid implementation, for games
+#import "TOGrid.h" //2D grid implementation, for games
 #import "TOLinkedList.h" //simple linked list implementation
 #import "NSCollections+TO.h" //various utilities for arrays and dictionaries
 #import "TOOperationManager.h" //fixed capacity operation queue with weak or strong target pointers
@@ -70,10 +70,9 @@ expressed or implied.
 #import "TOSimpleMailer.h" //simplifies working with MFMailComposeViewController
 #import "UIImage+TO.h" //image utils such as resize
 
-/***************
- * UIKIT UTILS *
- ***************/
-
+/*********
+ * UIKIT *
+ *********/
 
 #import "TOFrameUtils.h" //simplifies CGRect frame operations
 #import "TOSimpleTableView.h" //simplifies UITableViewDelegate implementation
