@@ -92,7 +92,7 @@ All code in this library uses [Automatic Reference Counting (ARC)](http://develo
 Licensing
 =========
 
-All scripts are licensed with the [Apache license](http://en.wikipedia.org/wiki/Apache_license), which is a great license because, essentially it:
+TumbleOnUtils is licensed with the [Apache license](http://en.wikipedia.org/wiki/Apache_license), which is a great license because, essentially it:
 
 * covers liability - our code should work, but we're not liable if you do something stupid with it
 * allows you to copy, fork, and use the code, even commercially

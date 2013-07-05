@@ -1,84 +1,60 @@
 /*
-
-TOFrameUtils.h
-
-A collection of utilities that simplify common Objective C CGRect/Frame 
-operations such as resizing, moving, centering, debug logging, and more.
-
-USAGE INSTRUCTIONS
-
-Using this class is simple. Simply include the source code from the
-FrameUtils.zip file in your Objective C project, then import this file in
-any file where you would like to use the methods provided by class.
-
-USAGE EXAMPLES
-
-#move a frame to position 0,0
-CGRect movedFrame = [FrameUtils frame:oldFrame moveToX:0 y:0];
-
-#move a frame left by 50 pixels
-CGRect movedFrame = [FrameUtils frame:oldFrame moveByXDelta:-50];
-
-#resize a frame to 50x100
-CGRect resizedFrame = [FrameUtils frame:oldFrame resizeToWidth:50 height:100];
-
-#resize a frame to be 75 pixels wider
-CGRect resizedFrame = [FrameUtils frame:oldFrame resizeByWidthDelta:75];
-
-#center a frame inside another frame
-CGRect centeredFrame = [FrameUtils frame:oldFrame centerInFrame:parentFrame];
-
-#print a frame to NSLog
-[FrameUtils printFrame:oldFrame];
-
-#"fix" a frame (set NAN dimensions to 0, and round all dimensions)
-CGRect fixedFrame = [FrameUtils fixFrame:oldFrame];
-
-If you're using these utilities often on UIView frame objects, consider using
-the UIVIew+FrameUtils category, more info is in UIView+FrameUtils.h. 
-
-Created by Jason Baker (jason@onejasonforsale.com) 
-& Adam Zacharski (zacharski@gmail.com) for TumbleOn, March 2012.
-
-The latest version of this code is available here:
-
-- https://bitbucket.org/tumbleon/tumbleon-utils
-
-This code is licensed under the Apache license, a non-viral open source license
-that lets you use this code freely within your own projects without requiring 
-your project itself to also be open source. More information about the Apache 
-license is here:
-
-- http://en.wikipedia.org/wiki/Apache_license
-
-Copyright (c) 2012, Pocket Sized Giraffe, LLC. All rights reserved.
-
-Redistribution and use in source and binary forms, with or without modification, 
-are permitted provided that the following conditions are met: 
-
-1. Redistributions of source code must retain the above copyright notice, this 
-list of conditions and the following disclaimer. 
-
-2. Redistributions in binary form must reproduce the above copyright notice, this 
-list of conditions and the following disclaimer in the documentation and/or other 
-materials provided with the distribution. 
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
-EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
-POSSIBILITY OF SUCH DAMAGE. 
-
-The views and conclusions contained in the software and documentation are those of 
-the authors and should not be interpreted as representing official policies, either 
-expressed or implied.
-
-*/
+ 
+ TOFrameUtils.h
+ 
+ A collection of utilities that simplify common Objective C CGRect/Frame
+ operations such as resizing, moving, centering, debug logging, and more.
+ 
+ USAGE INSTRUCTIONS
+ 
+ Using this class is simple. Simply include the source code from the
+ FrameUtils.zip file in your Objective C project, then import this file in
+ any file where you would like to use the methods provided by class.
+ 
+ USAGE EXAMPLES
+ 
+ #move a frame to position 0,0
+ CGRect movedFrame = [FrameUtils frame:oldFrame moveToX:0 y:0];
+ 
+ #move a frame left by 50 pixels
+ CGRect movedFrame = [FrameUtils frame:oldFrame moveByXDelta:-50];
+ 
+ #resize a frame to 50x100
+ CGRect resizedFrame = [FrameUtils frame:oldFrame resizeToWidth:50 height:100];
+ 
+ #resize a frame to be 75 pixels wider
+ CGRect resizedFrame = [FrameUtils frame:oldFrame resizeByWidthDelta:75];
+ 
+ #center a frame inside another frame
+ CGRect centeredFrame = [FrameUtils frame:oldFrame centerInFrame:parentFrame];
+ 
+ #print a frame to NSLog
+ [FrameUtils printFrame:oldFrame];
+ 
+ #"fix" a frame (set NAN dimensions to 0, and round all dimensions)
+ CGRect fixedFrame = [FrameUtils fixFrame:oldFrame];
+ 
+ If you're using these utilities often on UIView frame objects, consider using
+ the UIVIew+FrameUtils category, more info is in UIView+FrameUtils.h.
+ 
+ ---
+ 
+ This code comes from TumbleOnUtils, which is an open-source collection of
+ iOS utilities developed for TumbleOn and other projects.
+ 
+ https://github.com/codercowboy/TumbleOnUtils/
+ 
+ Authors
+ * Jason Baker (jason@onejasonforsale.com)
+ * Adam Zacharski (zacharski@gmail.com)
+ 
+ TumbleOnUtils is licensed with the Apache license. For details, see:
+ 
+ https://github.com/codercowboy/TumbleOnUtils/blob/master/LICENSE.md
+ 
+ Copyright (c) 2012-2013, Pocket Sized Giraffe, LLC. All rights reserved.
+ 
+ */
 
 #import <Foundation/Foundation.h>
 
