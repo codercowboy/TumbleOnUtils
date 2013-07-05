@@ -56,10 +56,6 @@
 + (UIAlertView*) showSimpleCancelOkAlert:(NSString*)message alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate;
 @end
 
-@interface UIViewController (TO)
-- (void) fixForNon4Inch;
-@end
-
 @interface UIView (TO)
 @property (nonatomic, retain) UIColor *borderColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat borderWidth UI_APPEARANCE_SELECTOR;

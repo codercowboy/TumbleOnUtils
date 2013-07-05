@@ -88,7 +88,7 @@
         // save to camera roll
         UIImageWriteToSavedPhotosAlbum(self.selectedImage, nil,nil, nil);
     }
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
+    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) takeCameraPicture {
@@ -97,7 +97,7 @@
     imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *) kUTTypeImage, nil];
     imagePicker.allowsEditing = NO;
-    [self.parentViewController presentModalViewController:imagePicker animated:YES];
+    [self.parentViewController presentViewController:imagePicker animated:YES completion:nil];
 }
 
 - (void) pickRollPicture {
@@ -106,7 +106,7 @@
     imagePicker.delegate = (id<UINavigationControllerDelegate,UIImagePickerControllerDelegate>)self;
     imagePicker.mediaTypes = [NSArray arrayWithObjects:(NSString *) kUTTypeImage,nil];
     imagePicker.allowsEditing = NO;
-    [self.parentViewController presentModalViewController:imagePicker animated:YES];    
+    [self.parentViewController presentViewController:imagePicker animated:YES completion:nil];
 }
 
 @end

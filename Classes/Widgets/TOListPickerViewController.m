@@ -80,6 +80,8 @@
 }
 
 - (void) rename {
+    //TODO: change this to a delegate so we dont have to supress this
+    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     [self.renameTarget performSelector:self.renameAction withObject:self];
 }
 
