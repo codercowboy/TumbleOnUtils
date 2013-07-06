@@ -96,3 +96,9 @@
 + (void) printFrame:(CGRect)frame;
 
 @end
+
+#define screenHeight [[UIScreen mainScreen] bounds].size.height
+#define screenWidth [[UIScreen mainScreen] bounds].size.width
+#define screenIs4Inch (screenHeight == 568)
+#define screenIs3dot5Inch (screenHeight == 480)
+

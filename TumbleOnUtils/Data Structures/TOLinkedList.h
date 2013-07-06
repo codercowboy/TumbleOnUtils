@@ -42,4 +42,5 @@
 - (NSObject*)removeHead;
 - (NSObject*)removeTail;
 - (NSObject*)removeNode:(TOLLNode*)node;
+- (NSArray*) allNodes;
 @end

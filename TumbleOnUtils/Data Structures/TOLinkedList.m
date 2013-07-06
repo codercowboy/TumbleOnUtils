@@ -33,6 +33,14 @@
 
 @implementation TOLinkedList
 
+- (void)dealloc {
+    for (TOLLNode * node in [self allNodes]) {
+        node.prev = nil;
+        node.next = nil;
+        node.object = nil;
+    }
+}
+
 - (TOLLNode*)addObjectFront:(NSObject*)object {
     self.count++;
     TOLLNode * node = [TOLLNode nodeWithObject:object];
@@ -114,6 +122,16 @@
     node.next = nil;
     node.prev = nil;
     return node.object;
+}
+
+- (NSArray*) allNodes {
+    NSMutableArray * array = [NSMutableArray array];
+    TOLLNode * node = self.head;
+    while (node != nil) {
+        [array addObject:node];
+        node = node.next;
+    }
+    return array;
 }
 
 

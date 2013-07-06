@@ -28,6 +28,8 @@
 + (UIAlertView*) showSimpleAlert:(NSString*)message;
 + (UIAlertView*) showSimpleNoYesAlert:(NSString*)message alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate;
 + (UIAlertView*) showSimpleCancelOkAlert:(NSString*)message alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate;
++ (UIAlertView*) showSimpleAlert:(NSString*)message buttonTitles:(NSArray*)buttonTitles
+               alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate;
 @end
 
 @interface UIView (TO)
@@ -45,9 +47,12 @@
 - (UIScrollView *) findChildUIScrollView;
 + (UIView *) fullScreenShadowBackground;
 + (void) hideUIWebViewShadow:(UIWebView *)webView;
-+ (int) getTouchTapCount:(UIEvent *) event;
-+ (BOOL) isSingleTap:(UIEvent *) event;
-+ (BOOL) isDoubleTap:(UIEvent *) event;
+@end
+
+@interface UIEvent (TO)
+@property (nonatomic, readonly) int touchTapCount;
+@property (nonatomic, readonly) BOOL isSingleTap;
+@property (nonatomic, readonly) BOOL isDoubleTap;
 @end
 
 @interface UIButton (TO)
@@ -63,7 +68,3 @@
 #define BarButtonItem(titleParam, actionParam) [[UIBarButtonItem alloc] initWithTitle:titleParam style:UIBarButtonItemStyleBordered target:self action:actionParam]
 #define BarButtonFlexibleSpace [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]
 #define BarButtonFixedSpace [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil]
-
-#define screenHeight [[UIScreen mainScreen] bounds].size.height
-#define screenIs4Inch (screenHeight == 568)
-#define screenIs3dot5Inch (screenHeight == 480)

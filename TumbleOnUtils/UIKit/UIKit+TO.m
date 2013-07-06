@@ -28,37 +28,33 @@
 @implementation UIAlertView (TO)
 
 + (UIAlertView*) showSimpleAlert:(NSString*)message {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil
-                                           cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
-    [alert show];
-    return alert;
+    return [UIAlertView showSimpleAlert:message buttonTitles:nil alertViewDelegate:nil];
 }
 
 + (UIAlertView*) showSimpleNoYesAlert:(NSString*)message alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:alertViewDelegate
-                                           cancelButtonTitle:nil otherButtonTitles:@"NO", @"YES", nil];
-    [alert show];
-    return alert;
-
+    return [UIAlertView showSimpleAlert:message buttonTitles:@[@"NO", @"YES"] alertViewDelegate:alertViewDelegate];
 }
 
 + (UIAlertView*) showSimpleCancelOkAlert:(NSString*)message alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate {
+    return [UIAlertView showSimpleAlert:message buttonTitles:@[@"CANCEL", @"OK"] alertViewDelegate:alertViewDelegate];
+}
+
++ (UIAlertView*) showSimpleAlert:(NSString*)message buttonTitles:(NSArray*)buttonTitles
+                       alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate {
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:alertViewDelegate
-                                           cancelButtonTitle:nil otherButtonTitles:@"CANCEL", @"OK", nil];
+                                           cancelButtonTitle:nil otherButtonTitles:nil];
+    for (NSString * title in buttonTitles) {
+        [alert addButtonWithTitle:title];
+    }
     [alert show];
     return alert;
 }
-
 
 @end
 
 @implementation UIView (TO)
 
-- (void) removeAllSubviews {
-    for (UIView * v in self.subviews) {
-        [v removeFromSuperview];
-    }
-}
+- (void) removeAllSubviews { for (UIView * v in self.subviews) { [v removeFromSuperview]; } }
 
 -(void)animateBounceTo:(CGPoint)to delay:(NSTimeInterval)delay {
     CGPoint firstStop = CGPointMake(to.x-(self.frame.origin.x-to.x)*.1, to.y-(self.frame.origin.y-to.y)*.1);
@@ -71,35 +67,15 @@
         }];
     }];
 }
--(void)animateBounceTo:(CGPoint)to {
-    [self animateBounceTo:to delay:0];
-}
+-(void)animateBounceTo:(CGPoint)to { [self animateBounceTo:to delay:0]; }
 
 @dynamic borderWidth, borderColor, cornerRadius;
-
-- (void)setBorderColor:(UIColor *)borderColor {
-    self.layer.borderColor = [borderColor CGColor];
-}
-
-- (UIColor *)borderColor {
-    return [UIColor colorWithCGColor:self.layer.borderColor];
-}
-
-- (CGFloat)borderWidth {
-    return self.layer.borderWidth;
-}
-
-- (void)setBorderWidth:(CGFloat)borderWidth {
-    self.layer.borderWidth = borderWidth;
-}
-
-- (CGFloat)cornerRadius {
-    return self.layer.cornerRadius;
-}
-
-- (void)setCornerRadius:(CGFloat)cornerRadius {
-    self.layer.cornerRadius = cornerRadius;
-}
+- (void)setBorderColor:(UIColor *)borderColor { self.layer.borderColor = [borderColor CGColor]; }
+- (UIColor *)borderColor { return [UIColor colorWithCGColor:self.layer.borderColor]; }
+- (CGFloat)borderWidth { return self.layer.borderWidth; }
+- (void)setBorderWidth:(CGFloat)borderWidth { self.layer.borderWidth = borderWidth; }
+- (CGFloat)cornerRadius { return self.layer.cornerRadius; }
+- (void)setCornerRadius:(CGFloat)cornerRadius { self.layer.cornerRadius = cornerRadius; }
 
 - (void) setGradientBackgroundFromColor:(UIColor*)color1 toColor:(UIColor*)color2 {
     [self setGradientBackgroundFromColors:@[color1,color2]];
@@ -117,10 +93,6 @@
     self.backgroundColor = [UIColor clearColor];
 }
 
-- (UIView *) findChildWithClass:(Class)classToFind {
-    return [UIView findChildClass:classToFind parentView:self];
-}
-
 + (UIView *) findChildClass:(Class)classToFind parentView:(UIView *)parentView {
     for (UIView *checkView in [parentView subviews] ) {
         if ([checkView isKindOfClass:classToFind]) {
@@ -130,20 +102,13 @@
     return nil;
 }
 
-- (UIWebView *) findChildUIWebView {
-    return (UIWebView *) [self findChildWithClass:[UIWebView class]];
-}
-
-- (UIImageView *) findChildUIImageView {
-    return (UIImageView *) [self findChildWithClass:[UIImageView class]];
-}
-
-- (UIScrollView *) findChildUIScrollView {
-    return (UIScrollView *) [self findChildWithClass:[UIScrollView class]];
-}
-
+- (UIView *) findChildWithClass:(Class)classToFind { return [UIView findChildClass:classToFind parentView:self]; }
+- (UIWebView *) findChildUIWebView { return (UIWebView *) [self findChildWithClass:[UIWebView class]]; }
+- (UIImageView *) findChildUIImageView { return (UIImageView *) [self findChildWithClass:[UIImageView class]]; }
+- (UIScrollView *) findChildUIScrollView { return (UIScrollView *) [self findChildWithClass:[UIScrollView class]]; }
 
 + (UIView *) fullScreenShadowBackground {
+    //TODO: Fill screen here..
     UIView * grayBackground = [[UIView alloc] initWithFrame:[TOFrameUtils frameIpadLandscape]];
     grayBackground.backgroundColor = [UIColor blackColor];
     grayBackground.alpha = 0.5f;
@@ -161,27 +126,18 @@
     }
 }
 
-+ (int) getTouchTapCount:(UIEvent *) event  {
-    //---get all touches on the screen---
-    NSSet *allTouches = [event allTouches];
-	
-    UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
-    return [touch tapCount];
-    //---compare the number of touches on the screen---
-}
-
-+ (BOOL) isSingleTap:(UIEvent *) event {
-    return [self getTouchTapCount:event] == 1;
-}
-
-+ (BOOL) isDoubleTap:(UIEvent *) event {
-    return [self getTouchTapCount:event] == 2;
-}
-
-
 @end
 
-@implementation UIButton (CC)
+@implementation UIEvent (TO)
+- (int)touchTapCount {
+    UITouch *touch = [[[self allTouches] allObjects] objectAtIndex:0];
+    return [touch tapCount];
+}
+- (BOOL)isSingleTap { return self.touchTapCount == 1; }
+- (BOOL)isDoubleTap { return self.touchTapCount == 2; }
+@end
+
+@implementation UIButton (TO)
 
 + (UIButton*) buttonWithTitle:(NSString*)title tapSelector:(SEL)tapSelector parent:(NSObject *)parent frame:(CGRect)frame {
     UIButton * button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
