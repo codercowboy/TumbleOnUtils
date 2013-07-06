@@ -1,6 +1,6 @@
 /*
  
- TOCurrencyTextField
+ TOWidgetExampleViewController
  
  ---
  
@@ -21,9 +21,15 @@
  
  */
 
-
 #import <UIKit/UIKit.h>
 
-@interface TOCurrencyTextField : UITextField <UITextFieldDelegate>
-@property (nonatomic) long long value;
+@interface TOWidgetExampleViewController : UIViewController
+@property (nonatomic, strong) UIScrollView * scrollview;
+@property (nonatomic) BOOL includeNameLabels;
+@property (nonatomic, strong) UIView * lastAddedView;
+- (void) addInstructions:(NSString*)instructions;
+- (void) addWidgetView:(UIView*)widget;
+- (void) addWidgetViewController:(UIViewController*)widget;
+- (void) addWidgetWithName:(NSString*)name;
+- (void) addView:(UIView*)view withClass:(Class)clz;
 @end

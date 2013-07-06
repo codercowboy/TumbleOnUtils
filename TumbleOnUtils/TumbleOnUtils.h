@@ -35,6 +35,7 @@
  * MISC *
  ********/
 
+#import "TOClassUtil.h" //class utilities such as pretty printing class names, and loading class from a string
 #import "TOFileUtil.h" //file IO and filename related utilities.
 #import "TOSimpleImagePicker.h" //simplifies working with UIImagePickerController
 #import "TOSimpleMailer.h" //simplifies working with MFMailComposeViewController
@@ -62,4 +63,5 @@
 #import "TOListPickerViewController.h" //self-containted UITableViewController to select/reorder/delete/rename items from a list
 #import "TOListPickAddViewController.h" //add item controller for ListPickerViewController
 #import "TOTouchDelegatorView.h" //UIView that delegates all touch events (and long press gestures) to a delegate
+#import "TOWidgetExampleViewController.h" //View controller with a vertical scroll view for displaying examples
 #import "UIKit+TOFlashing.h" //UILabel or UIView w/ flashing timer

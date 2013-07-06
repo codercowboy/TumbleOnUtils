@@ -27,6 +27,7 @@ What the code does
 
 
 DATA STRUCTURES
+
 * Foundation+TONilSafe - arrays, dictionaries, and strings with nil-safe add operations
 * Foundation+TO - various utilities for Foundation classes
 * TOGrid - 2D grid implementation, for games
@@ -52,10 +53,12 @@ WIDGETS
 * TODatePickerViewController - self-contained UITextField with +/- stepper and associated date picker
 * TOListPickerViewController - self-containted UITableViewController to select/reorder/add/delete/rename items from a list
 * TOTouchDelegatorView - UIView that delegates all touch events (and long press gestures) to a delegate
+* TOWidgetExampleViewController - View controller with a vertical scroll view for displaying examples
 * UIKit+TOFlashing.h - UILabel or UIView w/ flashing timer
 
 MISC
 
+* TOClassUtil - class utilities such as pretty printing class names, and loading class from a string
 * TOFileUtil - file IO and filename related utilities.
 * TOSimpleImagePicker - simplifies working with UIImagePickerController
 * TOSimpleMailer - simplifies working with MFMailComposeViewController

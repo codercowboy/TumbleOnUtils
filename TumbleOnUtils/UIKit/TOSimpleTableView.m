@@ -48,48 +48,37 @@
 
 @implementation TOSimpleTableView
 
-@synthesize myTableView, dataSource, allowEdits, delegate;
-
-+ (TOSimpleTableView *) createTableViewHelper:(UITableView *)tableView dataSource:(NSMutableArray *)dataSource delegate:(id)delegate {
-    TOSimpleTableView * tvh = [[TOSimpleTableView alloc] init];
-    tvh.myTableView = tableView;
-    tvh.allowEdits = YES;
-    tvh.dataSource = dataSource;
-    tvh.delegate = delegate;
-    tableView.delegate = tvh;
-    tableView.dataSource = tvh;
-    return tvh;
++ (TOSimpleTableView*) wrapTableView:(UITableView*)tableView dataSource:(NSMutableArray*)dataSource
+                            delegate:(id<TOSimpleTableViewDelegate>)delegate {
+    TOSimpleTableView * stv = [[TOSimpleTableView alloc] init];
+    stv.tableView = tableView;
+    stv.allowEdits = YES;
+    stv.dataSource = dataSource;
+    stv.delegate = delegate;
+    tableView.delegate = stv;
+    tableView.dataSource = stv;
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:stv.defaultCellIdentifier];
+    return stv;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
+- (NSString *)defaultCellIdentifier { return @"TOSimpleTableView-Cell"; }
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView { return 1; }
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section { return [self.dataSource count]; }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath { return self.allowEdits; }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.dataSource count];
-}
-
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return self.allowEdits;
-}
-
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         NSObject * object = [self.dataSource objectAtIndex:indexPath.row];
 		[self.dataSource removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        if ([self.delegate respondsToSelector:@selector(objectDeleted:)]) {
-            [self.delegate objectDeleted:object];
+        if ([self.delegate respondsToSelector:@selector(toSimpleTableView:objectDeleted:index:)]) {
+            [self.delegate toSimpleTableView:self objectDeleted:object index:indexPath.row];
         }
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        NSLog(@"ERROR: TableViewHelper doesnt support UITableViewCellEditingStyleInsert");
+        NSLog(@"ERROR: TOSimpleTableView doesnt support UITableViewCellEditingStyleInsert");
     }   
 }
 
@@ -101,24 +90,26 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (![self.delegate respondsToSelector:@selector(toSimpleTableView:objectSelected:index:cell:)]) {
+        return;
+    }
     NSObject * object = [self.dataSource objectAtIndex:indexPath.row];
-    UITableViewCell * cell = [self.myTableView cellForRowAtIndexPath:indexPath];
-    [self.delegate objectSelected:object cell:cell];
+    UITableViewCell * cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [self.delegate toSimpleTableView:self objectSelected:object index:indexPath.row cell:cell];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSObject * object = [self.dataSource objectAtIndex:indexPath.row];
-    return [delegate createCellForObject:object];
+    if (![self.delegate respondsToSelector:@selector(toSimpleTableView:createCellForObject:index:)]) {
+        UITableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:self.defaultCellIdentifier];
+        cell.textLabel.text = [object description];
+        return cell;
+    }
+    return [self.delegate toSimpleTableView:self createCellForObject:object index:indexPath.row];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];    return cell.frame.size.height;    
-}
-
-- (void) reload {
-    self.myTableView.delegate = self;
-    self.myTableView.dataSource = self;
-    [self.myTableView reloadData];
+    return [self tableView:tableView cellForRowAtIndexPath:indexPath].frame.size.height;
 }
 
 @end

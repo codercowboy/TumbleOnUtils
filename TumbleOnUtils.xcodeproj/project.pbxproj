@@ -83,6 +83,12 @@
 		96EDDB991787830200322C85 /* TOTouchDelegatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDB4E178782B600322C85 /* TOTouchDelegatorView.m */; };
 		96EDDB9A1787830200322C85 /* UIKit+TOFlashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDB50178782B600322C85 /* UIKit+TOFlashing.m */; };
 		96EDDB9D1787844300322C85 /* TOSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDB9C1787844300322C85 /* TOSampleViewController.m */; };
+		96EDDBA2178797F300322C85 /* TOClassUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDBA1178797F200322C85 /* TOClassUtil.m */; };
+		96EDDBA3178797F300322C85 /* TOClassUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDBA1178797F200322C85 /* TOClassUtil.m */; };
+		96EDDBA61787A4A500322C85 /* TOWidgetExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDBA51787A4A400322C85 /* TOWidgetExampleViewController.m */; };
+		96EDDBA71787A4A500322C85 /* TOWidgetExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDBA51787A4A400322C85 /* TOWidgetExampleViewController.m */; };
+		96EDDBAA1787A91E00322C85 /* TOWidgetDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDBA91787A91E00322C85 /* TOWidgetDemoViewController.m */; };
+		96EDDBAB1787A91E00322C85 /* TOWidgetDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDBA91787A91E00322C85 /* TOWidgetDemoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +183,12 @@
 		96EDDB5C178782B600322C85 /* TumbleOnUtils-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TumbleOnUtils-Prefix.pch"; path = "TumbleOnUtilsDemo/TumbleOnUtils-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		96EDDB9B1787844300322C85 /* TOSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOSampleViewController.h; sourceTree = "<group>"; };
 		96EDDB9C1787844300322C85 /* TOSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOSampleViewController.m; sourceTree = "<group>"; };
+		96EDDBA0178797F200322C85 /* TOClassUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOClassUtil.h; sourceTree = "<group>"; };
+		96EDDBA1178797F200322C85 /* TOClassUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOClassUtil.m; sourceTree = "<group>"; };
+		96EDDBA41787A4A400322C85 /* TOWidgetExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOWidgetExampleViewController.h; sourceTree = "<group>"; };
+		96EDDBA51787A4A400322C85 /* TOWidgetExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOWidgetExampleViewController.m; sourceTree = "<group>"; };
+		96EDDBA81787A91E00322C85 /* TOWidgetDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOWidgetDemoViewController.h; sourceTree = "<group>"; };
+		96EDDBA91787A91E00322C85 /* TOWidgetDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOWidgetDemoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +309,8 @@
 		96EDDB26178782B600322C85 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				96EDDBA0178797F200322C85 /* TOClassUtil.h */,
+				96EDDBA1178797F200322C85 /* TOClassUtil.m */,
 				96EDDB27178782B600322C85 /* TOFileUtil.h */,
 				96EDDB28178782B600322C85 /* TOFileUtil.m */,
 				96EDDB29178782B600322C85 /* TOSimpleImagePicker.h */,
@@ -348,6 +362,8 @@
 				96EDDB4C178782B600322C85 /* TOListPickerViewController.xib */,
 				96EDDB4D178782B600322C85 /* TOTouchDelegatorView.h */,
 				96EDDB4E178782B600322C85 /* TOTouchDelegatorView.m */,
+				96EDDBA41787A4A400322C85 /* TOWidgetExampleViewController.h */,
+				96EDDBA51787A4A400322C85 /* TOWidgetExampleViewController.m */,
 				96EDDB4F178782B600322C85 /* UIKit+TOFlashing.h */,
 				96EDDB50178782B600322C85 /* UIKit+TOFlashing.m */,
 			);
@@ -363,6 +379,8 @@
 				96EDDB9C1787844300322C85 /* TOSampleViewController.m */,
 				96EDDB59178782B600322C85 /* TOSimpleTableViewExample.h */,
 				96EDDB5A178782B600322C85 /* TOSimpleTableViewExample.m */,
+				96EDDBA81787A91E00322C85 /* TOWidgetDemoViewController.h */,
+				96EDDBA91787A91E00322C85 /* TOWidgetDemoViewController.m */,
 			);
 			path = TumbleOnUtilsDemo;
 			sourceTree = "<group>";
@@ -535,6 +553,9 @@
 				96EDDB7C178782B600322C85 /* TOSample-main.m in Sources */,
 				96EDDB7D178782B600322C85 /* TOSimpleTableViewExample.m in Sources */,
 				96EDDB9D1787844300322C85 /* TOSampleViewController.m in Sources */,
+				96EDDBA2178797F300322C85 /* TOClassUtil.m in Sources */,
+				96EDDBA61787A4A500322C85 /* TOWidgetExampleViewController.m in Sources */,
+				96EDDBAA1787A91E00322C85 /* TOWidgetDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +589,9 @@
 				96EDDB971787830200322C85 /* TOListPickerViewController.m in Sources */,
 				96EDDB991787830200322C85 /* TOTouchDelegatorView.m in Sources */,
 				96EDDB9A1787830200322C85 /* UIKit+TOFlashing.m in Sources */,
+				96EDDBA3178797F300322C85 /* TOClassUtil.m in Sources */,
+				96EDDBA71787A4A500322C85 /* TOWidgetExampleViewController.m in Sources */,
+				96EDDBAB1787A91E00322C85 /* TOWidgetDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

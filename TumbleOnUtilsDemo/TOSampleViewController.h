@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TOSampleViewController : UITableViewController
-
+@property (nonatomic, strong) NSMutableArray * dataSource;
 @end

@@ -45,28 +45,28 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
+@class TOSimpleTableView;
 @protocol TOSimpleTableViewDelegate <NSObject>
-@required
+@optional
 /* Create and return a UITableViewCell instance for the given object from your data source. */
-- (UITableViewCell *) createCellForObject:(NSObject *)object;
+- (UITableViewCell *) toSimpleTableView:(TOSimpleTableView*)simpleTableView createCellForObject:(NSObject *)object index:(int)index;
 /* Perform an action based on the given selected object from your data source. */
 /* Provided cell object is the cell you've wrapped around the object. */
-- (void) objectSelected:(NSObject *)object cell:(UITableViewCell *)cell;
-@optional
+- (void) toSimpleTableView:(TOSimpleTableView*)simpleTableView objectSelected:(NSObject *)object index:(int)index cell:(UITableViewCell *)cell;
 /* Optional method to perform an action when the given item is removed from your data source */
-- (void) objectDeleted:(NSObject *)object;
+- (void) toSimpleTableView:(TOSimpleTableView*)simpleTableView objectDeleted:(NSObject *)object index:(int)index;
 @end
 
 @interface TOSimpleTableView : NSObject <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, readonly) NSString * defaultCellIdentifier;
+@property (nonatomic, strong) UITableView * tableView;
+@property (nonatomic, strong) NSMutableArray * dataSource;
+@property (nonatomic) BOOL allowEdits;
+@property (nonatomic, weak) id<TOSimpleTableViewDelegate> delegate;
 
-@property (strong) UITableView * myTableView;
-@property (strong) NSMutableArray * dataSource;
-@property BOOL allowEdits;
-@property (weak) id delegate;
-
-+ (TOSimpleTableView *) createTableViewHelper:(UITableView *)tableView dataSource:(NSMutableArray *)dataSource delegate:(id)delegate;
-
-- (void) reload;
++ (TOSimpleTableView*) wrapTableView:(UITableView*)tableView dataSource:(NSMutableArray*)dataSource
+                            delegate:(id<TOSimpleTableViewDelegate>)delegate;
 
 @end

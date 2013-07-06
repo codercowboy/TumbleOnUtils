@@ -76,10 +76,10 @@
     [self.view addSubview:self.tableView];
     
     //now setup our tableviewhelper
-    self.toSimpleTableView = [TOSimpleTableView createTableViewHelper:self.tableView
-                                                       dataSource:self.dataSource
-                                                         delegate:self];
-    
+//    self.toSimpleTableView = [TOSimpleTableView createTableViewHelper:self.tableView
+//                                                       dataSource:self.dataSource
+//                                                         delegate:self];
+//    
     //by default, tableviewhelper allows edits, to turn that off we do this:
     self.toSimpleTableView.allowEdits = NO;
     

@@ -1,6 +1,6 @@
 /*
  
- TOCurrencyTextField
+ TOClassUtil
  
  ---
  
@@ -21,9 +21,12 @@
  
  */
 
+#import <Foundation/Foundation.h>
 
-#import <UIKit/UIKit.h>
-
-@interface TOCurrencyTextField : UITextField <UITextFieldDelegate>
-@property (nonatomic) long long value;
+@interface TOClassUtil : NSObject
++ (NSString*) prettyPrintClassNameFromString:(NSString*)className;
++ (NSString*) prettyPrintClassName:(Class)clz;
++ (id) initClassFromName:(NSString*)className;
 @end
+
+#define toInit(className) [TOClassUtil initClassFromName:className]

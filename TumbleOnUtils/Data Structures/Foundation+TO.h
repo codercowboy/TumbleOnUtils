@@ -27,6 +27,8 @@
 - (BOOL) contains:(NSString*)string;
 - (NSString*) urlEncode;
 - (NSString*) urlDecode;
+- (NSString*) removePrefix:(NSString*)prefix;
+- (NSString*) removeSuffix:(NSString*)suffix;
 @end
 
 @interface NSNumber (TO)

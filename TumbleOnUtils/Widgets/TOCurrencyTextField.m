@@ -25,6 +25,7 @@
 //based largely on this: http://www.thepensiveprogrammer.com/2010/03/customizing-uitextfield-formatting-for.html
 
 #import "TOCurrencyTextField.h"
+#import "Foundation+TO.h"
 
 @interface TOCurrencyTextField ()
 @property (strong, nonatomic) NSNumberFormatter * currencyFormatter;
@@ -98,21 +99,22 @@
     return YES;
 }
 
-- (int) value {
-    return [self.currentNumber intValue];
+- (long long) value {
+    return [self.currentNumber longLongValue];
 }
 
-- (void)setValue:(int)value {
-    self.currentNumber = [NSMutableString stringWithString:[[NSNumber numberWithInt:value] stringValue]];
+- (void)setValue:(long long)value {
+    self.currentNumber = [NSMutableString stringWithString:[[NSNumber numberWithLongLong:value] stringValue]];
     [self renderValue];
 }
 
 - (void) renderValue {
     NSLog(@"Current string: %@", self.currentNumber);
-    int value = [self.currentNumber intValue];
+    long long value = [self.currentNumber longLongValue];
     int cents = value % 100;
-    int dollars = value / 100;
-    [self setText:[NSString stringWithFormat:@"$%d.%02d", dollars, cents]];
+    long long dollars = value / 100;
+    NSString * withThousands = [[NSNumber numberWithLongLong:dollars] formatWithThousands];
+    [self setText:[NSString stringWithFormat:@"$%@.%02d", withThousands, cents]];
 }
 
 

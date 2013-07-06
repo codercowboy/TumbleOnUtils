@@ -29,8 +29,11 @@
 
 @interface TOListPickerTableViewCell : UITableViewCell
 @property (strong,nonatomic) UIButton * renameButton;
-@property (weak,nonatomic) NSObject * renameTarget;
-@property (nonatomic) SEL renameAction;
+@property (weak,nonatomic) TOListPickerViewController * parentController;
+@end
+
+@interface TOListPickerViewController ()
+- (void) renameItem:(id)sender;
 @end
 
 @implementation TOListPickerTableViewCell
@@ -55,15 +58,9 @@
 }
 
 - (void) rename {
-    //TODO: change this to a delegate so we dont have to supress this
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [self.renameTarget performSelector:self.renameAction withObject:self];
+    [self.parentController renameItem:self];
 }
 
-@end
-
-
-@interface TOListPickerViewController ()
 @end
 
 @implementation TOListPickerViewController
@@ -96,8 +93,8 @@
         self.navigationItem.leftBarButtonItem = self.editButton;
     }
     self.navigationItem.title = self.itemDescription;
-    self.tvh = [TOSimpleTableView createTableViewHelper:self.tableView dataSource:self.dataSource delegate:self];
-    self.tvh.allowEdits = self.isEditable;
+    self.simpleTableView = [TOSimpleTableView wrapTableView:self.tableView dataSource:self.dataSource delegate:self];
+    self.simpleTableView.allowEdits = self.isEditable;
 }
 
 - (void) edit {
@@ -137,7 +134,7 @@
 - (void) renameItem:(id)sender {
     TOListPickerTableViewCell * cell = (TOListPickerTableViewCell *) sender;
     self.renamingIndexPath = [self.tableView indexPathForCell:cell];
-    TOListPickAddViewController * lpavc = (TOListPickAddViewController *) vcFromNib(@"ListPickAddViewController");
+    TOListPickAddViewController * lpavc = [[TOListPickAddViewController alloc] init];
     lpavc.itemDescription = self.itemDescription;
     lpavc.itemName = [self.dataSource objectAtIndex:self.renamingIndexPath.row];
     self.addViewController = lpavc;
@@ -146,30 +143,34 @@
 }
 
 - (void) add {
-    TOListPickAddViewController * lpavc = (TOListPickAddViewController *) vcFromNib(@"TOListPickAddViewController");
+    TOListPickAddViewController * lpavc = [[TOListPickAddViewController alloc] init];
     lpavc.itemDescription = self.itemDescription;
     self.addViewController = lpavc;
     lpavc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self pushModalAnimated:lpavc];
 }
 
-- (UITableViewCell *)createCellForObject:(NSObject *)object {
+- (UITableViewCell *)toSimpleTableView:(TOSimpleTableView *)simpleTableView createCellForObject:(NSObject *)object index:(int)index {
     TOListPickerTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"id"];
     if (cell == nil) {
         cell = [[TOListPickerTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"id"];
-        cell.renameTarget = self;
-        cell.renameAction = @selector(renameItem:);
+        cell.parentController = self;
     }
-    cell.textLabel.text =  (NSString*)object;
+    cell.textLabel.text = [object description];
     if ([self.selectedItems containsObject:object]) {
-        [self objectSelected:cell.textLabel.text cell:cell];
+        [self toSimpleTableView:self.simpleTableView objectSelected:cell.textLabel.text index:index cell:cell];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     return cell;
 }
 
-- (void)objectSelected:(NSObject *)object cell:(UITableViewCell *)cell {
+- (void) done {
+    [self.delegate listPickerFinished:self selectedItems:self.selectedItems];
+}
+
+- (void) toSimpleTableView:(TOSimpleTableView *)simpleTableView objectSelected:(NSObject *)object
+                     index:(int)index cell:(UITableViewCell *)cell {
     if (self.multiSelectionAllowed) {
         if ([self.selectedItems containsObject:object]) {
             [self.selectedItems removeObject:object];
@@ -187,11 +188,8 @@
     }
 }
 
-- (void) done {
-    [self.delegate listPickerFinished:self selectedItems:self.selectedItems];
-}
 
-- (void)objectDeleted:(NSObject *)object {
+- (void)toSimpleTableView:(TOSimpleTableView *)simpleTableView objectDeleted:(NSObject *)object index:(int)index {
     if ([self.delegate respondsToSelector:@selector(itemDeletedWithName:)]) {
         [self.delegate itemDeletedWithName:(NSString*)object];
     }
@@ -206,7 +204,7 @@
     //clear all was tapped
     if (buttonIndex == 1) {
         [self.dataSource removeAllObjects];
-        [self.tvh reload];
+        [self.tableView reloadData];
         [self edit];
     }
 }

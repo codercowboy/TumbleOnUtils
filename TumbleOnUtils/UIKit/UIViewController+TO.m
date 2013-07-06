@@ -34,12 +34,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-+ (UIViewController *) vcFromNib:(NSString*)className {
-    Class clz = NSClassFromString(className);
-    UIViewController * instance = [clz alloc];
-    return [instance initWithNibName:className bundle:nil];
-}
-
 - (void) push:(UIViewController *)vc {
     [self.navigationController pushViewController:vc animated:NO];
 }

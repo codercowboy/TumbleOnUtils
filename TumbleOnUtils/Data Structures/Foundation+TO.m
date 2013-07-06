@@ -46,6 +46,27 @@
                                                             kCFStringEncodingUTF8);
     return decoded;
 }
+
+- (NSString*) removePrefix:(NSString*)prefix {
+    if (![self hasPrefix:prefix]) {
+        return self;
+    }
+    if (self.length == prefix.length) {
+        return @"";
+    }
+    return [self substringFromIndex:prefix.length];
+}
+
+- (NSString*) removeSuffix:(NSString*)suffix {
+    if (![self hasSuffix:suffix]) {
+        return self;
+    }
+    if (self.length == suffix.length) {
+        return @"";
+    }
+    return [self substringToIndex:self.length - suffix.length];
+}
+
 @end
 
 

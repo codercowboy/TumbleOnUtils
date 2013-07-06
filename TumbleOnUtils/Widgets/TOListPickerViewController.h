@@ -46,7 +46,7 @@
 @property (strong,nonatomic) UIBarButtonItem * editButton;
 @property (strong,nonatomic) UIBarButtonItem * addButton;
 @property (strong,nonatomic) IBOutlet UITableView * tableView;
-@property (strong,nonatomic) TOSimpleTableView * tvh;
+@property (strong,nonatomic) TOSimpleTableView * simpleTableView;
 @property BOOL insideNavController;
 @property (strong,nonatomic) TOListPickAddViewController * addViewController;
 @property (strong,nonatomic) NSIndexPath * renamingIndexPath;

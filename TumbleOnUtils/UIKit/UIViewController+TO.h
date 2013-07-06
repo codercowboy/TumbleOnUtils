@@ -34,12 +34,8 @@
 - (void) pushModalAnimated:(UIViewController*)vc;
 - (void) popOrDismiss;
 - (void) popOrDismissAnimated;
-+ (UIViewController *) vcFromNib:(NSString*)className;
-
 - (void) setNavLeftItem:(UIBarButtonItem*)item;
 - (void) setNavRightItem:(UIBarButtonItem*)item;
 - (void) handleNavLeftTap:(id)sender;
 - (void) handleNavRighttTap:(id)sender;
 @end
-
-#define vcFromNib(className2) [UIViewController vcFromNib:className2]
