@@ -23,12 +23,18 @@
 
 #import <Foundation/Foundation.h>
 
-//backingStore example: http://stackoverflow.com/questions/5045071/subclassing-nsarray-nsmutablearray
+@class TONSMutableArrayNilSafe, TONSMutableDictionaryNilSafe, TONSMutableStringNilSafe;
+
+@interface NSArray (TONilSafe)
++ (TONSMutableArrayNilSafe*) nilSafeMutableArray;
+@end
+
+@interface NSDictionary (TONilSafe)
++ (TONSMutableDictionaryNilSafe*) nilSafeMutableDictionary;
+@end
+
 @interface TONSMutableArrayNilSafe : NSMutableArray
 @end
 
 @interface TONSMutableDictionaryNilSafe : NSMutableDictionary
-@end
-
-@interface TONSMutableStringNilSafe : NSMutableString
 @end

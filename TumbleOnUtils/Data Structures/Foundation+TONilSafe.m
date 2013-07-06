@@ -23,10 +23,19 @@
 
 #import "Foundation+TONilSafe.h"
 
+@implementation NSArray (TONilSafe)
++ (TONSMutableArrayNilSafe*) nilSafeMutableArray { return [TONSMutableArrayNilSafe array]; }
+@end
+
+@implementation NSDictionary (TONilSafe)
++ (TONSMutableDictionaryNilSafe*) nilSafeMutableDictionary { return [TONSMutableDictionaryNilSafe dictionary]; }
+@end
+
 @interface TONSMutableArrayNilSafe ()
 @property (strong) NSMutableArray * backingStore;
 @end
 
+//backingStore example: http://stackoverflow.com/questions/5045071/subclassing-nsarray-nsmutablearray
 @implementation TONSMutableArrayNilSafe
 
 - (id)init {
@@ -37,15 +46,11 @@
     return self;
 }
 
-+ (id)array {
-    return [[TONSMutableArrayNilSafe alloc] init];
-}
++ (id)array { return [[TONSMutableArrayNilSafe alloc] init]; }
 
 + (id)arrayWithArray:(NSArray *)array {
     TONSMutableArrayNilSafe * result = [TONSMutableArrayNilSafe array];
-    if (array != nil) {
-        [result addObjectsFromArray:array];
-    }
+    if (array != nil) { [result addObjectsFromArray:array]; }
     return result;
 }
 
@@ -53,13 +58,8 @@
 
 #pragma mark NSArray
 
--(NSUInteger)count {
-    return [self.backingStore count];
-}
-
--(id)objectAtIndex:(NSUInteger)index {
-    return [self.backingStore objectAtIndex:index];
-}
+-(NSUInteger)count { return [self.backingStore count]; }
+-(id)objectAtIndex:(NSUInteger)index { return [self.backingStore objectAtIndex:index]; }
 
 #pragma mark NSMutableArray
 
@@ -69,30 +69,23 @@
 }
 
 - (void)addObjectsFromArray:(NSArray *)otherArray {
-    if (otherArray == nil || [otherArray count] == 0) {
-        return;
-    }
+    if (otherArray == nil || [otherArray count] == 0) { return; }
     [self.backingStore addObjectsFromArray:otherArray];
 }
 
--(void)removeObjectAtIndex:(NSUInteger)index {
-    [self.backingStore removeObjectAtIndex:index];
-}
+-(void)removeObjectAtIndex:(NSUInteger)index { [self.backingStore removeObjectAtIndex:index]; }
 
 -(void)addObject:(id)anObject {
     if (anObject == nil) return;
     [self.backingStore addObject:anObject];
 }
 
--(void)removeLastObject {
-    [self.backingStore removeLastObject];
-}
+-(void)removeLastObject { [self.backingStore removeLastObject]; }
 
 -(void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject {
     if (anObject == nil) return;
     [self.backingStore replaceObjectAtIndex:index withObject:anObject];
 }
-
 
 @end
 
@@ -110,14 +103,10 @@
     return self;
 }
 
-+ (id)dictionary {
-    return [[TONSMutableDictionaryNilSafe alloc] init];
-}
++ (id)dictionary { return [[TONSMutableDictionaryNilSafe alloc] init]; }
 
 - (void) setValue:(id)value forKey:(NSString *)key {
-    if (value == nil || key == nil) {
-        return;
-    }
+    if (value == nil || key == nil) { return; }
     [super setValue:value forKey:key];
 }
 
@@ -130,52 +119,13 @@
     [self.backingStore setObject:anObject forKey:aKey];
 }
 
-- (NSUInteger)count {
-    return [self.backingStore count];
-}
-
-- (id)objectForKey:(id)aKey {
-    if (aKey == nil) return nil;
-    return [self.backingStore objectForKey:aKey];
-}
-
-- (NSEnumerator *)keyEnumerator {
-    return [self.backingStore keyEnumerator];
-}
+- (NSUInteger)count { return [self.backingStore count]; }
+- (id)objectForKey:(id)aKey { return (aKey == nil) ? nil : [self.backingStore objectForKey:aKey]; }
+- (NSEnumerator *)keyEnumerator { return [self.backingStore keyEnumerator]; }
 
 - (void)removeObjectForKey:(id)aKey {
     if (aKey == nil) return;
     [self.backingStore removeObjectForKey:aKey];
-}
-
-@end
-
-@interface TONSMutableStringNilSafe ()
-@property (strong,nonatomic) NSMutableString * innerString;
-@end
-
-@implementation TONSMutableStringNilSafe
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.innerString = [[NSMutableString alloc] init];
-    }
-    return self;
-}
-
-- (void)appendString:(NSString *)aString {
-    if (aString != nil) {
-        [self.innerString appendString:aString];
-    }
-}
-
-- (unichar)characterAtIndex:(NSUInteger)index {
-    return [self.innerString characterAtIndex:index];
-}
-
-- (NSUInteger)length {
-    return [self.innerString length];
 }
 
 @end
