@@ -53,7 +53,7 @@
 - (void) setObject:(NSObject *)object col:(int)col row:(int)row {
     int index = [self indexForCol:col row:row];
     if (index != -1) {
-        self.grid[index] = object;
+        self.grid[index] = (object == nil) ? [NSNull null] : object;
     }
 }
 
