@@ -56,6 +56,8 @@
 }
 
 - (void) setup {
+    self.textAlignment = NSTextAlignmentRight;
+    self.borderStyle = UITextBorderStyleRoundedRect;
     self.unallowedCharacters = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     self.keyboardType = UIKeyboardTypeDecimalPad;
     self.delegate = self;

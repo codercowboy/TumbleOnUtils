@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     TOCurrencyTextField * currencyTextField = [[TOCurrencyTextField alloc] init];
-    [currencyTextField frameResizeToWidth:200 height:20];
+    [currencyTextField frameResizeToWidth:200 height:25];
     [self addView:currencyTextField withClass:[currencyTextField class]];
     [self addWidgetWithName:@"TODatePickerViewController"];
 }
