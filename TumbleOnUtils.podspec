@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.authors      = { "Jason Baker" => "jason@onejasonforsale.com", "Adam Zacharski" => "zacharski@gmail.com" }
   s.source       = { :git => "https://github.com/codercowboy/TumbleOnUtils.git", :tag => "#{s.version}" }  
   s.platform     = :ios, "6.0"
-  s.source_files = 'Classes', 'Classes/**/*.{h,m}'
-  s.resources	 = 'Classes/**/*.{xib,storyboard,lproj,png,json}'
+  s.source_files = 'TumbleOnUtils/**/*.{h,m}'
+  s.resources	 = 'TumbleOnUtils/**/*.{xib,storyboard,lproj,png,json}'
   s.requires_arc = true
   s.frameworks   = 'CoreGraphics', 'Foundation', 'MessageUI', 'MobileCoreServices', 'QuartzCore', 'UIKit'
 end
