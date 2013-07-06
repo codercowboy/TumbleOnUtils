@@ -24,8 +24,8 @@
 #import "TOGrid.h"
 #import "Foundation+TONilSafe.h"
 
-@interface TOGrid ()
-@property TONSMutableDictionaryNilSafe * grid;
+@interface TOGrid()
+@property NSMutableArray * grid;
 @end
 
 @implementation TOGrid
@@ -34,62 +34,67 @@
     if (self) {
         self.colCount = colCount;
         self.rowCount = rowCount;
-        self.grid = [TONSMutableDictionaryNilSafe dictionary];
+        int capacity = colCount * rowCount;
+        self.grid = [NSMutableArray arrayWithCapacity:capacity];
+        for (int i = 0; i < capacity; i++) {
+            [self.grid addObject:[NSNull null]];
+        }
     }
     return self;
 }
 
-- (NSString*) indexForCol:(int)col row:(int)row {
+- (int) indexForCol:(int)col row:(int)row {
     if (col >= self.colCount || row >= self.rowCount || col < 0 || row < 0) {
-        return nil;
+        return -1;
     }
-    return [NSString stringWithFormat:@"%d,%d", col, row];
+    return (row * self.colCount) + col;
 }
 
-- (void) setObject:(NSObject *)object  col:(int)col row:(int)row {
-    NSString * index = [self indexForCol:col row:row];
-    if (index != nil) {
-        [self.grid setObject:object forKey:index];
+- (void) setObject:(NSObject *)object col:(int)col row:(int)row {
+    int index = [self indexForCol:col row:row];
+    if (index != -1) {
+        self.grid[index] = object;
     }
 }
 
 - (NSObject *) objectAtCol:(int)col row:(int)row {
-    NSString * index = [self indexForCol:col row:row];
-    if (index == nil) {
-        return nil;
-    }
-    return [self.grid objectForKey:index];
+    int index = [self indexForCol:col row:row];
+    if (index == -1) { return nil; }
+    NSObject * o = self.grid[index];
+    return (o == [NSNull null]) ? nil : o;
 }
 
 - (NSObject *) randomObject {
-    NSArray * objects = [self.grid allValues];
-    return [objects objectAtIndex:(arc4random() % objects.count)];
+    int col = arc4random() % self.colCount;
+    int row = arc4random() % self.rowCount;
+    return [self objectAtCol:col row:row];
 }
 
-- (void) removeObjectAtCol:(int)col row:(int)row {
-    NSString * index = [self indexForCol:col row:row];
-    if (index != nil) {
-        [self.grid removeObjectForKey:index];
-    }
-}
-
-- (void) clear {
-    [self.grid removeAllObjects];
-}
-
-- (BOOL) isEmptyAtCol:(int)col row:(int)row {
-    return ([self objectAtCol:col row:row] == nil);
+- (NSObject*) removeObjectAtCol:(int)col row:(int)row {
+    int index = [self indexForCol:col row:row];
+    if (index == -1) { return nil; }
+    NSObject * o = self.grid[index];
+    self.grid[index] = [NSNull null];
+    return (o == [NSNull null]) ? nil : o;
 }
 
 - (NSArray*) allItems {
-    return [self.grid allValues];
+    NSMutableArray * array = [NSMutableArray array];
+    for (NSObject * o in self.grid) {
+        if (o != [NSNull null] && o != nil) {
+            [array addObject:o];
+        }
+    }
+    return array;
 }
 
 - (NSArray*) objectsAtCol:(int)col {
     NSMutableArray * array = [TONSMutableArrayNilSafe array];
     for (int row = 0; row < self.rowCount; row++) {
         NSObject * obj = [self objectAtCol:col row:row];
-        [array addObject:obj];
+        if (obj != [NSNull null]) {
+            [array addObject:obj];
+        }
     }
     return array;
 }
@@ -97,39 +102,43 @@
 - (NSArray*) objectsAtRow:(int)row {
     NSMutableArray * array = [TONSMutableArrayNilSafe array];
     for (int col = 0; col < self.colCount; col++) {
-        [array addObject:[self objectAtCol:col row:row]];
+        NSObject * obj = [self objectAtCol:col row:row];
+        if (obj != [NSNull null]) {
+            [array addObject:obj];
+        }
     }
     return array;
 }
 
-- (BOOL) isColumnEmpty:(int)col {
-    return [[self objectsAtCol:col] count] == 0;
+- (void) removeAllObjects { [self.grid removeAllObjects]; }
+
+- (BOOL) isEmptyAtCol:(int)col row:(int)row { return ([self objectAtCol:col row:row] == nil); }
+- (BOOL) isColumnEmpty:(int)col { return [[self objectsAtCol:col] count] == 0; }
+- (BOOL) isRowEmpty:(int)row { return [[self objectsAtRow:row] count] == 0; }
+
+- (BOOL) isEmpty {
+    for (int i = 0; i < self.colCount; i++) {
+        if (![self isColumnEmpty:i]) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
-- (BOOL) isRowEmpty:(int)row {
-    return [[self objectsAtRow:row] count] == 0;
-}
-
-- (int) findNexNonEmptyCol:(int)startCol {
+- (int) findNextNonEmptyCol:(int)startCol {
     int col = startCol;
     while (col < self.colCount && [self isColumnEmpty:col]) {
         col++;
     }
-    if (col == self.colCount) {
-        return -1;
-    }
-    return col;
+    return (col == self.colCount) ? -1 : col;
 }
 
-- (int) findNexNonEmptyRow:(int)startRow {
+- (int) findNextNonEmptyRow:(int)startRow {
     int row = startRow;
     while (row < self.rowCount && [self isRowEmpty:row]) {
         row++;
     }
-    if (row == self.rowCount) {
-        return -1;
-    }
-    return row;
+    return (row == self.rowCount) ? -1 : row;
 }
 
 - (NSObject*) getNeighborLeftAtCol:(int)col row:(int)row {
@@ -245,11 +254,7 @@
     NSMutableString * desc = [[NSMutableString alloc] init];
     for (int r = 0; r < self.rowCount; r++) {
         for (int c = 0; c < self.colCount; c++) {
-            if ([self objectAtCol:c row:r]) {
-                [desc appendString:@"X"];
-            } else {
-                [desc appendString:@" "];
-            }
+            [desc appendString:([self objectAtCol:c row:r] != nil ? @"X" : @" ")];
         }
         [desc appendString:@"\n"];
     }

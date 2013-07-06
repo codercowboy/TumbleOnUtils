@@ -37,15 +37,16 @@
 - (NSArray*) objectsAtRow:(int)row;
 - (NSObject *) randomObject;
 
-- (void) clear;
+- (void) removeAllObjects;
+- (BOOL) isEmpty;
 - (BOOL) isEmptyAtCol:(int)col row:(int)row;
 - (BOOL) isColumnEmpty:(int)col;
 - (BOOL) isRowEmpty:(int)row;
 
-- (void) removeObjectAtCol:(int)col row:(int)row;
+- (NSObject*) removeObjectAtCol:(int)col row:(int)row;
 
-- (int) findNexNonEmptyCol:(int)startCol;
-- (int) findNexNonEmptyRow:(int)startRow;
+- (int) findNextNonEmptyCol:(int)startCol;
+- (int) findNextNonEmptyRow:(int)startRow;
 
 - (NSObject*) getNeighborLeftAtCol:(int)col row:(int)row;
 - (NSObject*) getNeighborRightAtCol:(int)col row:(int)row;

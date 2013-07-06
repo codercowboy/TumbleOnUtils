@@ -89,6 +89,10 @@
 		96EDDBA71787A4A500322C85 /* TOWidgetExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDBA51787A4A400322C85 /* TOWidgetExampleViewController.m */; };
 		96EDDBAA1787A91E00322C85 /* TOWidgetDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDBA91787A91E00322C85 /* TOWidgetDemoViewController.m */; };
 		96EDDBAB1787A91E00322C85 /* TOWidgetDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96EDDBA91787A91E00322C85 /* TOWidgetDemoViewController.m */; };
+		96EDDBAC1787C45B00322C85 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CDF37E1783DBD0003AA83F /* CoreGraphics.framework */; };
+		96EDDBAD1787C45B00322C85 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CDF4A91783F21F003AA83F /* MessageUI.framework */; };
+		96EDDBAE1787C45B00322C85 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CDF4AD1783F25A003AA83F /* MobileCoreServices.framework */; };
+		96EDDBAF1787C45B00322C85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CDF4AA1783F220003AA83F /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +216,10 @@
 				96CDF3A21783DBD0003AA83F /* SenTestingKit.framework in Frameworks */,
 				96CDF3A31783DBD0003AA83F /* UIKit.framework in Frameworks */,
 				96CDF3A41783DBD0003AA83F /* Foundation.framework in Frameworks */,
+				96EDDBAC1787C45B00322C85 /* CoreGraphics.framework in Frameworks */,
+				96EDDBAD1787C45B00322C85 /* MessageUI.framework in Frameworks */,
+				96EDDBAE1787C45B00322C85 /* MobileCoreServices.framework in Frameworks */,
+				96EDDBAF1787C45B00322C85 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,7 +717,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TumbleOnUtils/TumbleOnUtils-Prefix.pch";
+				GCC_PREFIX_HEADER = "TumbleOnUtilsDemo/TumbleOnUtils-Prefix.pch";
 				INFOPLIST_FILE = "TumbleOnUtilsTests/TumbleOnUtilsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -726,7 +734,7 @@
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TumbleOnUtils/TumbleOnUtils-Prefix.pch";
+				GCC_PREFIX_HEADER = "TumbleOnUtilsDemo/TumbleOnUtils-Prefix.pch";
 				INFOPLIST_FILE = "TumbleOnUtilsTests/TumbleOnUtilsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
