@@ -27,8 +27,8 @@
 @interface TOUIFlashingLabel : UILabel
 @property (nonatomic) NSTimeInterval flashDuration;
 @property (nonatomic, strong) UIColor * flashColor;
-@property (nonatomic) BOOL isFlashing;
-//TODO: this class needs to have same style as flashing view below to prevent flicker craziness or doubling
+- (void) startAnimating;
+- (void) stopAnimating;
 @end
 
 @interface TOUIFlashingView : UIView

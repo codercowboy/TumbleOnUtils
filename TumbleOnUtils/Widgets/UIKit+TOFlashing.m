@@ -27,17 +27,16 @@
 
 @interface TOUIFlashingLabel ()
 @property UILabel * flashingLabel;
+@property (nonatomic) BOOL isFlashing;
 @end
 
 @implementation TOUIFlashingLabel
 
-- (void)setIsFlashing:(BOOL)isFlashing {
-    BOOL wasFlashing = _isFlashing;
-    _isFlashing = isFlashing;
-    if (!isFlashing) {
-        self.flashingLabel.hidden = YES;
+- (void) startAnimating {
+    if (self.isFlashing) {
         return;
     }
+    self.isFlashing = YES;
     if (self.flashingLabel == nil) {
         self.flashingLabel = [[UILabel alloc] initWithFrame:self.frame];
         [self.flashingLabel frameMoveToX:0 y:0];
@@ -48,17 +47,24 @@
         self.flashingLabel.textColor = self.flashColor;
         [self addSubview:self.flashingLabel];
     }
-    if (!wasFlashing) {
-        self.flashingLabel.hidden = NO;
-        self.flashingLabel.alpha = 0;
-        [self flashAgain];
+    self.flashingLabel.alpha = 0;
+    [self flashAgain];
+}
+
+- (void) stopAnimating {
+    if (!self.isFlashing) {
+        return;
     }
+    self.isFlashing = NO;
+    [self.flashingLabel.layer removeAllAnimations];
+    self.flashingLabel.alpha = 0;
 }
 
 - (void) flashAgain {
     if (!self.isFlashing) {
         return;
     }
+    [self.flashingLabel.layer removeAllAnimations];
     [UIView animateWithDuration:self.flashDuration animations:^{
         self.flashingLabel.alpha = (self.flashingLabel.alpha == 0) ? 1 : 0;
     } completion:^(BOOL finished) {

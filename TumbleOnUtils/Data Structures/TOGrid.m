@@ -1,6 +1,6 @@
 /*
  
- TOGridArray
+ TOGrid
  
  ---
  

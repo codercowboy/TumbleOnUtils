@@ -99,4 +99,25 @@
 	return [documentsDirectory stringByAppendingPathComponent: filename];
 }
 
++ (NSData *) loadDataFromDisk:(NSString *)fileName {
+    NSData * data = nil;
+    NSString *filePath = [TOFileUtil dataFilePath:fileName];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        data = [[NSMutableData alloc] initWithContentsOfFile:filePath];
+    }
+    return data;
+}
+
++ (void) saveDataToFile:(NSString *)fileName data:(NSData*)data {
+    NSDate * startTime = [NSDate date];
+    [data writeToFile:[TOFileUtil dataFilePath:fileName] atomically:YES];
+    long timePassed_ms = (long) ([startTime timeIntervalSinceNow] * -1000.0);
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    int length = [data length];
+    [params setValue:[NSNumber numberWithLong:timePassed_ms] forKey:@"time_elapsed"];
+    [params setValue:[NSNumber numberWithLong:length] forKey:@"bytes"];
+    [params setValue:fileName forKey:@"file"];
+    NSLog(@"object saved to file: %@ in %ld ms, %d bytes", fileName, timePassed_ms, length);
+}
+
 @end

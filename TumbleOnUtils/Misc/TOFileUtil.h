@@ -43,5 +43,7 @@
 // serialize a NSCoding compliant object (with encodeWithCoder:) to a given file path
 + (void) saveObjectToFile:(NSString *)fileName object:(NSObject*)object;
 
++ (NSData *) loadDataFromDisk:(NSString *)fileName;
++ (void) saveDataToFile:(NSString *)fileName data:(NSData*)data;
 
 @end
