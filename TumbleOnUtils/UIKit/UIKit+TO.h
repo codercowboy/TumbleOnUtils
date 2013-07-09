@@ -30,6 +30,7 @@
 + (UIAlertView*) showSimpleCancelOkAlert:(NSString*)message alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate;
 + (UIAlertView*) showSimpleAlert:(NSString*)message buttonTitles:(NSArray*)buttonTitles
                alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate;
++ (UIAlertView*) showSimpleTextBoxAlert:(NSString*)message placeholder:(NSString*)placeHolder alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate;
 @end
 
 @interface UIView (TO)

@@ -24,7 +24,13 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (TO)
-- (void) setNavBackButtonTitle:(NSString*)title;
+- (void) setNavLeftButtonTitle:(NSString*)title;
+- (void) setNavRightButtonTitle:(NSString*)title;
+- (void) setNavLeftItem:(UIBarButtonItem*)item;
+- (void) setNavRightItem:(UIBarButtonItem*)item;
+- (void) handleNavLeftTap:(id)sender;
+- (void) handleNavRightTap:(id)sender;
+
 - (void) push:(UIViewController *)vc;
 - (void) pushAnimated:(UIViewController*)vc;
 - (void) pushModal:(UIViewController*)vc;
@@ -34,8 +40,4 @@
 - (void) pushModalAnimated:(UIViewController*)vc;
 - (void) popOrDismiss;
 - (void) popOrDismissAnimated;
-- (void) setNavLeftItem:(UIBarButtonItem*)item;
-- (void) setNavRightItem:(UIBarButtonItem*)item;
-- (void) handleNavLeftTap:(id)sender;
-- (void) handleNavRighttTap:(id)sender;
 @end

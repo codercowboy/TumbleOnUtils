@@ -39,6 +39,16 @@
     return [UIAlertView showSimpleAlert:message buttonTitles:@[@"CANCEL", @"OK"] alertViewDelegate:alertViewDelegate];
 }
 
++ (UIAlertView*) showSimpleTextBoxAlert:(NSString*)message placeholder:(NSString*)placeHolder alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:alertViewDelegate  cancelButtonTitle:@"CANCEL" otherButtonTitles:@"OK", nil];
+    UITextField * textField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+    textField.placeholder = placeHolder;
+    [textField setBackgroundColor:[UIColor whiteColor]];
+    [alert addSubview:textField];
+    [alert show];
+    return alert;
+}
+
 + (UIAlertView*) showSimpleAlert:(NSString*)message buttonTitles:(NSArray*)buttonTitles
                        alertViewDelegate:(id<UIAlertViewDelegate>)alertViewDelegate {
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:alertViewDelegate

@@ -25,14 +25,30 @@
 
 @implementation UIViewController (TO)
 
-- (void) setNavBackButtonTitle:(NSString*)title {
+- (void) setNavLeftButtonTitle:(NSString*)title {
     self.navigationItem.leftBarButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self action:@selector(navBackButtonTapped)];
+    [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self action:@selector(handleNavLeftTap:)];
 }
 
-- (void) navBackButtonTapped {
-    [self.navigationController popViewControllerAnimated:YES];
+- (void) setNavRightButtonTitle:(NSString*)title {
+    self.navigationItem.rightBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self action:@selector(handleNavRightTap:)];
 }
+
+- (void) setNavLeftItem:(UIBarButtonItem*)item {
+    self.navigationItem.leftBarButtonItem = item;
+}
+- (void) setNavRightItem:(UIBarButtonItem*)item {
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void) handleNavLeftTap:(id)sender {
+    [self popOrDismissAnimated];
+}
+- (void) handleNavRightTap:(id)sender {
+    [self popOrDismissAnimated];
+}
+
 
 - (void) push:(UIViewController *)vc {
     [self.navigationController pushViewController:vc animated:NO];
@@ -89,17 +105,4 @@
     }
 }
 
-- (void) setNavLeftItem:(UIBarButtonItem*)item {
-    self.navigationItem.leftBarButtonItem = item;
-}
-- (void) setNavRightItem:(UIBarButtonItem*)item {
-    self.navigationItem.rightBarButtonItem = item;
-}
-
-- (void) handleNavLeftTap:(id)sender {
-    [self popOrDismissAnimated];
-}
-- (void) handleNavRighttTap:(id)sender {
-    [self popOrDismissAnimated];
-}
 @end
