@@ -99,6 +99,6 @@
 
 #define toScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define toScreenWidth [[UIScreen mainScreen] bounds].size.width
-#define toScreenIs4Inch (screenHeight == 568)
-#define toScreenIs3dot5Inch (screenHeight == 480)
+#define toScreenIs4Inch (toScreenHeight == 568)
+#define toScreenIs3dot5Inch (toScreenHeight == 480)
 

@@ -23,6 +23,8 @@
 
 #import <UIKit/UIKit.h>
 
+//TODO: add util to pop N views back
+
 @interface UIViewController (TO)
 - (void) setNavLeftButtonTitle:(NSString*)title;
 - (void) setNavRightButtonTitle:(NSString*)title;
